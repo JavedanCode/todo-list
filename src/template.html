@@ -3,9 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Webpack Template</title>
+    <title>Todo List</title>
   </head>
   <body>
-    <div id="content"></div>
+    <div id="content">
+      <div id="sidebar">
+        <div id="top-sidebar">
+          <button class="section-btn">🧾 All</button>
+          <button class="section-btn">🗓️ Today</button>
+          <button class="section-btn">✔️ Completed</button>
+        </div>
+        <div id="mid-sidebar">
+          <button class="section-btn">📁 Project List</button>
+          <button class="section-btn">➕ Add Project</button>
+        </div>
+      </div>
+      <div class="header">
+        <img class="logo" src="./img/logo.png" alt="phoenix logo" />
+        <p class="title">Todo Phoenix</p>
+      </div>
+      <div id="main">
+        <button id="add-task-btn">➕ Add Task</button>
+        <div id="projects">
+          <div id="tasks"></div>
+        </div>
+      </div>
+      <div id="modal-overlay" class="hidden">
+        <div id="modal">
+          <div class="modal-content">
+            <h2>Add Task</h2>
+            <input placeholder="Task title" />
+            <textarea placeholder="Description"></textarea>
+            <button>Add</button>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+        <p>
+          Copyright © 2026
+          <a href="https://github.com/JavedanCode">
+            JavedanCode
+            <img class="github-logo" src="./img/github-mark.svg" />
+          </a>
+        </p>
+      </footer>
+    </div>
   </body>
 </html>
