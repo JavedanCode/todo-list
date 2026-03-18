@@ -21,3 +21,18 @@ console.log("Webpack is working");
 //different sections for:
 // all tasks, today, completed, project list, add project
 //main area: Title for exampe today , task list, add task button
+
+const addTaskBtn = document.getElementById("add-task-btn");
+const modalOverlay = document.getElementById("modal-overlay");
+
+// OPEN MODAL
+addTaskBtn.addEventListener("click", () => {
+  modalOverlay.classList.remove("hidden");
+});
+
+// CLOSE MODAL (click outside)
+modalOverlay.addEventListener("click", (e) => {
+  if (e.target === modalOverlay) {
+    modalOverlay.classList.add("hidden");
+  }
+});

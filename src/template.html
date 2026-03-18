@@ -23,9 +23,22 @@
         <p class="title">Todo Phoenix</p>
       </div>
       <div id="main">
-        <button id="add-task-btn">➕ Add Task</button>
+        <button id="add-task-btn">➕</button>
         <div id="projects">
-          <div id="tasks"></div>
+          <h2 id="project-title">All Tasks</h2>
+          <div id="tasks">
+            <div class="task-item high">
+              <div class="task-left">
+                <input type="checkbox" />
+                <span class="task-title">Sample Task</span>
+              </div>
+
+              <div class="task-actions">
+                <button class="edit-btn">✏</button>
+                <button class="delete-btn">🗑</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div id="modal-overlay" class="hidden">
@@ -34,6 +47,13 @@
             <h2>Add Task</h2>
             <input placeholder="Task title" />
             <textarea placeholder="Description"></textarea>
+            <input type="date" />
+
+            <select>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
             <button>Add</button>
           </div>
         </div>
