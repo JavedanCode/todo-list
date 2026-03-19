@@ -21,6 +21,9 @@ export function loadModal() {
   const dateInput = document.createElement("input");
   dateInput.type = "date";
 
+  const today = new Date().toISOString().split("T")[0];
+  dateInput.min = today;
+
   const select = document.createElement("select");
 
   const options = [
@@ -62,19 +65,42 @@ export function loadModal() {
       title.textContent = "Edit Task";
       submitBtn.textContent = "Save";
 
-      input.value = taskData.title;
-      textarea.value = taskData.desc;
-      dateInput.value = taskData.date;
-      select.value = taskData.priority;
-    } else {
-      title.textContent = "Add Task";
+      input.value = taskData.title || "";
+      textarea.value = taskData.description || "";
+      dateInput.value = taskData.date || "";
+      select.value = taskData.priority || "low";
+
+      textarea.classList.remove("hidden");
+      dateInput.classList.remove("hidden");
+      select.classList.remove("hidden");
+    } else if (mode === "project") {
+      title.textContent = "Add Project";
       submitBtn.textContent = "Add";
 
       input.value = "";
+      input.placeholder = "Project Title";
+
+      textarea.classList.add("hidden");
+      dateInput.classList.add("hidden");
+      select.classList.add("hidden");
+    } else {
+      title.textContent = "Add Task";
+      submitBtn.textContent = "Add";
+      input.placeholder = "Task title";
+
+      textarea.classList.remove("hidden");
+      dateInput.classList.remove("hidden");
+      select.classList.remove("hidden");
+
+      const today = new Date().toISOString().split("T")[0];
+
+      input.value = "";
       textarea.value = "";
-      dateInput.value = "";
+      dateInput.value = today;
       select.value = "low";
     }
+
+    setTimeout(() => input.focus(), 0);
   }
 
   function closeModal() {

@@ -1,4 +1,4 @@
-function taskFactory({
+export function taskFactory({
   title = "",
   description = "",
   date = "",
