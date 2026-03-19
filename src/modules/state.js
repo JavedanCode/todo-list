@@ -63,7 +63,10 @@ function deleteProject(id) {
 function addTask(taskData) {
   const project = getCurrentProject();
 
-  if (!project) return;
+  if (!project || currentView !== "project") {
+    console.warn("Cannot add task outside project view");
+    return;
+  }
 
   const newTask = taskFactory(taskData);
   project.tasks.push(newTask);

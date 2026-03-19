@@ -88,7 +88,10 @@ function render() {
 
   renderProjects(getProjects(), sidebarRefs.projectContainer, render);
 
-  mainRefs.addTaskBtn.style.display = view === "project" ? "flex" : "none";
+  mainRefs.addTaskBtn.style.display = "flex";
+  mainRefs.addTaskBtn.style.opacity = view === "project" ? "1" : "0.4";
+  mainRefs.addTaskBtn.style.pointerEvents =
+    view === "project" ? "auto" : "none";
 
   let tasks = [];
 
@@ -121,6 +124,7 @@ render();
 
 //add task button event listener
 mainRefs.addTaskBtn.addEventListener("click", () => {
+  if (getView() !== "project") return;
   modal.openModal("add");
   modal.submitBtn.onclick = null;
   modal.submitBtn.onclick = () => {
